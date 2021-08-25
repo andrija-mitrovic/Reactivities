@@ -71,7 +71,7 @@ export default observer(function ActivityForm() {
         {({ handleSubmit, isValid, isSubmitting, dirty }) => (
           <Form className='ui form' onSubmit={handleSubmit} autoComplete="false">
             <MyTextInput name='title' placeholder='Title' />
-            <MyTextArea placeholder="Title" name="title" />
+            <MyTextArea rows={3} placeholder="Title" name="title" />
             <MyTextInput placeholder="Decription" name="description" />
             <MySelectInput options={categoryOptions} placeholder="Category" name="category" />
             <MyDateInput placeholderText="Date" name="date" showTimeSelect timeCaption='time' dateFormat='MMMM d, yyyy h:mm aa' />

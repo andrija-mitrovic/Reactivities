@@ -6,6 +6,7 @@ import { Label } from "semantic-ui-react";
 interface Props {
     placeholder: string;
     name: string;
+    rows: number;
     label?: string;
 }
 
