@@ -9,7 +9,7 @@ namespace Infrastructure.Data
 {
     public class ApplicationDbContextSeed
     {
-        public static async Task SeedData(ApplicationDbContext context,
+        public static async Task SeedDataAsync(ApplicationDbContext context,
             UserManager<AppUser> userManager)
         {
             if (!userManager.Users.Any() && !context.Activities.Any())
