@@ -1,4 +1,5 @@
 ﻿using Application.Activities;
+using Application.Comments;
 using AutoMapper;
 using Domain;
 using System.Linq;
@@ -23,6 +24,10 @@ namespace Application.Core
                 .ForMember(x => x.Image, y => y.MapFrom(z => z.AppUser.Photos.FirstOrDefault(t => t.IsMain).Url));
             CreateMap<AppUser, Profiles.Profile>()
                 .ForMember(x => x.Image, y => y.MapFrom(z => z.Photos.FirstOrDefault(t => t.IsMain).Url));
+            CreateMap<Comment, CommentDto>()
+                .ForMember(x => x.DisplayName, y => y.MapFrom(z => z.Author.DisplayName))
+                .ForMember(x => x.Username, y => y.MapFrom(z => z.Author.UserName))
+                .ForMember(x => x.Image, y => y.MapFrom(z => z.Author.Photos.FirstOrDefault(t => t.IsMain).Url));
         }
     }
 }

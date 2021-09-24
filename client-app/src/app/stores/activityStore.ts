@@ -1,7 +1,7 @@
 import { makeAutoObservable, runInAction } from "mobx";
 import agent from "../api/agent";
 import { Activity, ActivityFormValues } from "../models/activity";
-import {format} from 'date-fns';
+import { format } from 'date-fns';
 import { store } from "./store";
 import { Profile } from "../models/profile";
 
@@ -24,9 +24,9 @@ export default class ActivityStore {
         return Object.entries(
             this.activitiesByDate.reduce((activities, activity) => {
                 const date = format(activity.date!, 'dd MMM yyyy');
-                activities[date] = activities[date] ? [...activities[date], activity]:[activity];
+                activities[date] = activities[date] ? [...activities[date], activity] : [activity];
                 return activities;
-            }, {} as {[key: string]: Activity[]})
+            }, {} as { [key: string]: Activity[] })
         )
     }
 
@@ -173,5 +173,9 @@ export default class ActivityStore {
         } finally {
             runInAction(() => this.loading = false);
         }
+    }
+
+    clearSelectedActivity = () => {
+        this.selectedActivity = undefined;
     }
 }
